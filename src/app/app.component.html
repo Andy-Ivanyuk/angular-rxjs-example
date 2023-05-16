@@ -1,0 +1,15 @@
+<div *ngIf="doctors$ | async as doctors">
+  <div class="doctor" *ngFor="let doctor of doctors">
+    <img [src]="doctor.photo" alt="" />
+    <div>
+      <div>name: {{ doctor.fullName }}</div>
+      <div>specialisation: {{ doctor.specialisation }}</div>
+      <div>working days: {{ doctor.workingDays }}</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading$ | async">loading...</div>
+
+<button (click)="showTimer = !showTimer">toggle timer</button>
+<timer *ngIf="showTimer"></timer>
